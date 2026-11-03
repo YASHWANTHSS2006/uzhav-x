@@ -1,0 +1,70 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.email == "ssyash2211@gmail.com" ||
+        request.auth.uid == "ssyash2211@gmail.com"
+      );
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // User & Farmer Profiles
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+    match /farmers/{farmerId} {
+      allow read, write: if true;
+    }
+
+    // Community Forum Posts & Comments (camelCase and snake_case)
+    match /forumPosts/{postId} {
+      allow read, write: if true;
+
+      match /comments/{commentId} {
+        allow read, write: if true;
+      }
+    }
+    match /forum_posts/{postId} {
+      allow read, write: if true;
+
+      match /comments/{commentId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Plant Disease Diagnoses
+    match /diseaseDiagnoses/{diagnosisId} {
+      allow read, write: if true;
+    }
+
+    // Grievances & Feedback Reports (camelCase and snake_case)
+    match /grievanceReports/{reportId} {
+      allow read, write: if true;
+    }
+    match /grievances/{reportId} {
+      allow read, write: if true;
+    }
+
+    // Mandi Market Prices (camelCase and snake_case)
+    match /mandiPrices/{priceId} {
+      allow read, write: if true;
+    }
+    match /mandi_prices/{priceId} {
+      allow read, write: if true;
+    }
+
+    // Fertilizer Stores
+    match /agriStores/{storeId} {
+      allow read, write: if true;
+    }
+  }
+}

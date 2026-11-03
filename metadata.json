@@ -1,0 +1,6 @@
+{
+  "name": "Uzhav X",
+  "description": "Uzhav X - The Future of Farming. AI-powered Tamil Nadu Agriculture platform with daily mandi crop prices, fertilizer store price comparison and map, AI crop recommendation, government subsidies (maniyam), plant disease scanner, and farmer community forum in Tamil and English.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

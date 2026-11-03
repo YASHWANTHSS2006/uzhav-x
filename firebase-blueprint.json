@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "User": {
+      "collection": "users",
+      "fields": {
+        "userId": "string",
+        "name": "string",
+        "email": "string",
+        "district": "string",
+        "taluka": "string",
+        "village": "string",
+        "contact": "string",
+        "role": "string",
+        "preferredLanguage": "string",
+        "primaryCrops": "array",
+        "landAcres": "number",
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp"
+      }
+    },
+    "ForumPost": {
+      "collection": "forumPosts",
+      "fields": {
+        "id": "string",
+        "authorUid": "string",
+        "authorName": "string",
+        "authorDistrict": "string",
+        "authorRole": "string",
+        "title": "string",
+        "body": "string",
+        "cropTag": "string",
+        "postType": "string",
+        "upvotes": "number",
+        "createdAt": "timestamp"
+      }
+    },
+    "ForumComment": {
+      "collection": "forumPosts/{postId}/comments",
+      "fields": {
+        "id": "string",
+        "authorUid": "string",
+        "authorName": "string",
+        "authorRole": "string",
+        "content": "string",
+        "isExpertAnswer": "boolean",
+        "upvotes": "number",
+        "createdAt": "timestamp"
+      }
+    },
+    "DiseaseDiagnosis": {
+      "collection": "diseaseDiagnoses",
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "cropName": "string",
+        "diseaseName": "string",
+        "confidencePercent": "number",
+        "severityLevel": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    "GrievanceReport": {
+      "collection": "grievanceReports",
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "farmerName": "string",
+        "district": "string",
+        "category": "string",
+        "description": "string",
+        "status": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    "MandiPrice": {
+      "collection": "mandiPrices",
+      "fields": {
+        "id": "string",
+        "cropName": "string",
+        "marketName": "string",
+        "district": "string",
+        "modalPrice": "number",
+        "updatedAt": "timestamp"
+      }
+    },
+    "AgriStore": {
+      "collection": "agriStores",
+      "fields": {
+        "id": "string",
+        "name": "string",
+        "storeType": "string",
+        "district": "string",
+        "taluk": "string",
+        "phone": "string",
+        "updatedAt": "timestamp"
+      }
+    }
+  }
+}
